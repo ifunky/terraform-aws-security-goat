@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+
+contact_links:
+
+  - name: Wiz Documentation
+    url: https://docs.wiz.io/wiz-docs/docs
+    about: |-
+      Please find the Wiz technical documentation here (customers only)

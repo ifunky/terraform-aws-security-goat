@@ -1,0 +1,64 @@
+---
+# Name of this project
+name: terraform-aws-security-goat
+title: AWS Infrastructure Gone Wrong
+
+# Build Badges
+badges:
+  - name: "License"
+    image: "https://img.shields.io/badge/License-Apache%202.0-blue.svg"
+    url: "https://opensource.org/licenses/Apache-2.0"
+
+description: |-
+  A collection of bad infrastructure designed to trigger and demo security issues.
+
+  ## Features
+
+  ### EC2
+
+  - Creates an EC2 instance
+  - SSH password - BE VERY CAREFUL!
+  - ECAR malware samples
+  - Instance metadata V1
+  - Packages with high vulnerabilities
+
+  ### Security groups
+
+  - Creates 2 security groups designed to violate standards CIS 4.1 (open port 22) and CIS 4.2 (open RDP 3389)
+
+  ### Example AWS IAM key and secret
+
+  - Keys to the castle example to test secret detection
+
+# How to use this project
+usage: |-
+  ```hcl
+  module "bad_infra" {
+      source = "git::https://github.com/ifunky/terraform-aws-security-goat.git?ref=main"
+
+      enabled   = true
+      key_pair  = aws_key_pair.server.key_name
+      vpc_id    = module.vpc.vpc_id
+      vpc_name  = module.vpc.name
+      region    = var.region
+      subnet_id = data.aws_subnet.public_1b.id
+      ssh_password "put a very long password here!"
+      sg_tls_group_id = aws_security_group.vpc_tls.id
+    }  
+
+  ```
+  > NOTE: Please use this at your own risk!!
+
+
+# Include output from terraform-module-inspect
+include:
+  - "docs/targets.md"
+  - "docs/metadata.md"
+
+# List of useful related projects/links
+related:
+  - name: "PolyDev"
+    description: "PolyDev repo and setup guide"
+    url: "https://github.com/ifunky/polydev"
+
+references:

@@ -1,0 +1,30 @@
+# Compiled files
+*.tfstate
+*.tfstate.backup
+*.tfstate.lock.info
+
+# logs
+*.log
+
+# Directories
+.terraform/
+.vagrant/
+.terraform.lock.hcl
+testresults/
+buildOutput/
+
+# SSH Keys
+*.pem
+
+# Backup files
+*.bak
+
+# Ignored Terraform files
+*gitignore*.tf
+tfplan*
+tfplan.json
+
+# Ignore override files used locally
+override.tf
+*_override.tf
+*_override.tfvars
