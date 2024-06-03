@@ -49,7 +49,7 @@ auth: ## WizCli authentication
 	@wizcli auth --id $(WIZ_CLIENT_ID) --secret $(WIZ_CLIENT_SECRET)
 
 scan: ## Scan code
-	@wizcli iac scan --path . --policy $(WIZ_POLICY) --secrets --show-secret-snippets
+	@wizcli iac scan --path . --policy "Default secrets policy" --secrets --show-secret-snippets
 
 #####################################################################
 # Public targets designed to be run directly from the command line
